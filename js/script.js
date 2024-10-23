@@ -1,3 +1,5 @@
+const draggedItems = [];
+
 function getRandomInRange(min, max) {
 	return Math.random() * (max - min) + min;
 }
@@ -30,7 +32,7 @@ function initSupermarket() {
 		};
 
 		const onMove = (e) => {
-			if (!isDragging) return;
+			if (!isDragging || draggedItems.length >= 3) return;
 
 			const dx = (e.type === 'mousemove' ? e.clientX : e.touches[0].clientX) - lastX; // Изменение по X
 			const dy = (e.type === 'mousemove' ? e.clientY : e.touches[0].clientY) - lastY; // Изменение по Y
@@ -49,7 +51,7 @@ function initSupermarket() {
 		};
 
 		const stopDragging = () => {
-			if (isDragging) {
+			if (isDragging && draggedItems.length < 3) {
 				isDragging = false;
 				img.style.transition = 'transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1)';
 				img.dataset.y = item.bottom - 50;
@@ -64,7 +66,25 @@ function initSupermarket() {
 
 				img.style.transform = `translate(${img.dataset.x}px, ${
 					img.dataset.y
-				}px) rotate(${getRandomInRange(-15, 15)}deg) scale(1.1)`;
+				}px) rotate(${getRandomInRange(-15, 15)}deg) scale(1.15)`;
+
+				if (!draggedItems.includes(item.image)) {
+					draggedItems.push(item.image);
+				}
+				if (draggedItems.length >= 3) {
+					setTimeout(() => {
+						const button = document.createElement('button'); // Создаем элемент изображения
+						button.classList.add('buy-button');
+						button.classList.add('w-center');
+						button.textContent = 'Оплатить корзину';
+
+						button.addEventListener('click', function () {
+							window.open('https://lavka.yandex.ru/'); // Открывает ссылку в новой вкладке
+						});
+
+						supermarketDiv.appendChild(button);
+					}, 200);
+				}
 			}
 		};
 

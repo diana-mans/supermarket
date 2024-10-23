@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'YS Text';
+	src: url('./YS\ Text-Medium.ttf') format('ttf');
+	font-weight: 500; /* Укажите вес шрифта */
+	font-style: normal; /* Укажите стиль шрифта */
+}
+
 html,
 body,
 .main-container {
@@ -49,5 +56,22 @@ body,
 .product-item {
 	position: absolute;
 	z-index: 2;
+	cursor: pointer;
+}
+
+.buy-button {
+	border: none;
+	width: 174px;
+	padding: 17px 18px;
+	border-radius: 16px;
+	background: #fce000;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 17px; /* 106.25% */
+	letter-spacing: -0.08px;
+	position: absolute;
+	bottom: 20px;
+	z-index: 4;
 	cursor: pointer;
 }
