@@ -61,7 +61,6 @@ body,
 
 .buy-button {
 	border: none;
-	width: 174px;
 	padding: 17px 18px;
 	border-radius: 16px;
 	background: #fce000;
@@ -74,4 +73,5 @@ body,
 	bottom: 20px;
 	z-index: 4;
 	cursor: pointer;
+	text-wrap: nowrap;
 }
