@@ -1,4 +1,4 @@
-const imagesPath = 'images/items/';
+const imagesPath = 'assets/images/items/';
 const items = [
 	{
 		bottom: 448,

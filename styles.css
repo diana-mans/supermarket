@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'YS Text';
-	src: url('./YS\ Text-Medium.ttf') format('ttf');
+	src: url('./assets/fonts/YS\ Text-Medium.ttf') format('ttf');
 	font-weight: 500; /* Укажите вес шрифта */
 	font-style: normal; /* Укажите стиль шрифта */
 }
